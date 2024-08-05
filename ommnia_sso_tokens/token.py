@@ -26,6 +26,7 @@ class LoginSessionCreationToken(BaseModel):
     optional_permissions: List[str]
     required_permissions: List[str]
     target_app_name: Optional[str] = None  # If not specified, it is meant for the initiating app.
+    redirect_url: str
 
 
 type TokenValue = Annotated[
