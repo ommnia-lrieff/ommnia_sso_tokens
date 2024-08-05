@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ommnia-sso-tokens"
+version = "0.1.0"
+description = "The tokens used by the Ommnia SSO system."
+authors = ["Luke A.C.A. Rieff - Ommnia Systems"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyjwt = "^2.9.0"
+pydantic = "^2.8.2"
+ommnia-permission-tree = {git = "https://github.com/ommnia-lrieff/ommnia_permission_tree.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
