@@ -3,7 +3,7 @@ import asyncio
 from typing import Any, ClassVar, Optional
 import jwt
 
-from ommnia_sso_tokens.token import Token
+from ommnia_sso_tokens.token import Token, TokenValue
 
 
 class _TokenVerifier:
@@ -14,7 +14,7 @@ class _TokenVerifier:
         token: str,
         public_key: Optional[str] = None,
         verify: bool = True,
-    ) -> Token:
+    ) -> TokenValue:
         def inner_verify() -> Any:
             return jwt.decode(
                 token,
@@ -27,7 +27,7 @@ class _TokenVerifier:
 
         return Token.model_validate(
             await asyncio.get_running_loop().run_in_executor(None, inner_verify)
-        )
+        ).value
 
 
 class TokenVerifier(ABC):

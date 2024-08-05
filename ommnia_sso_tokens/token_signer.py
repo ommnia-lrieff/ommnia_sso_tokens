@@ -3,16 +3,16 @@ from abc import ABC
 import asyncio
 import jwt
 
-from ommnia_sso_tokens.token import Token
+from ommnia_sso_tokens.token import Token, TokenValue
 
 
 class _TokenSigner:
     _ALGORITHM: ClassVar[str] = "RS256"
 
-    async def sign(self, token: Token, private_key: str) -> str:
+    async def sign(self, token_value: TokenValue, private_key: str) -> str:
         def inner_sign() -> str:
             return jwt.encode(
-                token.model_dump(),
+                Token(value=token_value).model_dump(),
                 private_key,
                 algorithm=self._ALGORITHM,
             )
