@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.12"
 pyjwt = "^2.9.0"
 pydantic = "^2.8.2"
-ommnia-permission-tree = {git = "git@github.com:ommnia-lrieff/ommnia_permission_tree.git", tag="v1.0.3"}
+ommnia-permission-tree = {git = "https://github.com/ommnia-lrieff/ommnia_permission_tree.git", tag="v1.0.3"}
 
 
 [build-system]
