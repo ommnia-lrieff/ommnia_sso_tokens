@@ -13,18 +13,18 @@ files = [
 
 [[package]]
 name = "more-itertools"
-version = "10.3.0"
+version = "10.4.0"
 description = "More routines for operating on iterables, beyond itertools"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "more-itertools-10.3.0.tar.gz", hash = "sha256:e5d93ef411224fbcef366a6e8ddc4c5781bc6359d43412a65dd5964e46111463"},
-    {file = "more_itertools-10.3.0-py3-none-any.whl", hash = "sha256:ea6a02e24a9161e51faad17a8782b92a0df82c12c1c8886fec7f0c3fa1a1b320"},
+    {file = "more-itertools-10.4.0.tar.gz", hash = "sha256:fe0e63c4ab068eac62410ab05cccca2dc71ec44ba8ef29916a0090df061cf923"},
+    {file = "more_itertools-10.4.0-py3-none-any.whl", hash = "sha256:0f7d9f83a0a8dcfa8a2694a770590d98a67ea943e3d9f5298309a484758c4e27"},
 ]
 
 [[package]]
 name = "ommnia-permission-tree"
-version = "0.1.0"
+version = "1.0.3"
 description = "A simple data structure to manage permissions."
 optional = false
 python-versions = "^3.12"
@@ -36,9 +36,9 @@ more-itertools = "^10.3.0"
 
 [package.source]
 type = "git"
-url = "https://github.com/ommnia-lrieff/ommnia_permission_tree.git"
-reference = "HEAD"
-resolved_reference = "714261045e0d8699522fce714e4bb2cc58f2693a"
+url = "git@github.com:ommnia-lrieff/ommnia_permission_tree.git"
+reference = "v1.0.3"
+resolved_reference = "346892d9200770dee98bd0285251ba9aed200d33"
 
 [[package]]
 name = "pydantic"
@@ -194,4 +194,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "af65072df4f9876182411ffb539621059385b6170b060fc00d66f84eda747d01"
+content-hash = "a837004b38ca20501a06a8bd5a4a43bfcd28b577500b94f914b53319623b2434"
