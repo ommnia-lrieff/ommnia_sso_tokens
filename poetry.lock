@@ -36,7 +36,7 @@ more-itertools = "^10.3.0"
 
 [package.source]
 type = "git"
-url = "git@github.com:ommnia-lrieff/ommnia_permission_tree.git"
+url = "https://github.com/ommnia-lrieff/ommnia_permission_tree.git"
 reference = "v1.0.3"
 resolved_reference = "346892d9200770dee98bd0285251ba9aed200d33"
 
@@ -194,4 +194,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a837004b38ca20501a06a8bd5a4a43bfcd28b577500b94f914b53319623b2434"
+content-hash = "128c28240b88ba835566f135c7069e37fb4dfecae92facd7c6edb65359eead27"
