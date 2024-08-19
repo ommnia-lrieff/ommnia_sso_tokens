@@ -9,15 +9,17 @@ from ommnia_sso_tokens.token import Token, TokenValue
 class _TokenSigner:
     _ALGORITHM: ClassVar[str] = "RS256"
 
-    async def sign(self, token_value: TokenValue, private_key: str) -> str:
-        def inner_sign() -> str:
-            return jwt.encode(
-                Token(value=token_value).model_dump(),
-                private_key,
-                algorithm=self._ALGORITHM,
-            )
+    def sign(self, token_value: TokenValue, private_key: str) -> str:
+        return jwt.encode(
+            Token(value=token_value).model_dump(),
+            private_key,
+            algorithm=self._ALGORITHM,
+        )
 
-        return await asyncio.get_running_loop().run_in_executor(None, inner_sign)
+    async def asign(self, token_value: TokenValue, private_key: str) -> str:
+        return await asyncio.get_running_loop().run_in_executor(
+            None, self.sign, token_value, private_key
+        )
 
 
 class TokenSigner(ABC):

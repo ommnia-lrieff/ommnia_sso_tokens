@@ -1,32 +1,39 @@
 from abc import ABC
 import asyncio
-from typing import Any, ClassVar, Optional
+from typing import ClassVar, Optional
 import jwt
 
 from ommnia_sso_tokens.token import Token, TokenValue
 
 
 class _TokenVerifier:
-    _ALGORITHM: ClassVar[str] = "RS256"
+    ALGORITHM: ClassVar[str] = "RS256"
 
-    async def verify(
+    def verify(
         self,
         token: str,
         public_key: Optional[str] = None,
         verify: bool = True,
     ) -> TokenValue:
-        def inner_verify() -> Any:
-            return jwt.decode(
+        return Token.model_validate(
+            jwt.decode(
                 token,
                 public_key if public_key is not None else "",
-                algorithms=[self._ALGORITHM],
-                options={
-                    "verify_signature": verify,
-                },
+                algorithms=[self.ALGORITHM],
+                options={"verify_signature": verify},
             )
+        ).value
 
+    async def averify(
+        self,
+        token: str,
+        public_key: Optional[str] = None,
+        verify: bool = True,
+    ) -> TokenValue:
         return Token.model_validate(
-            await asyncio.get_running_loop().run_in_executor(None, inner_verify)
+            await asyncio.get_running_loop().run_in_executor(
+                None, self.verify, token, public_key, verify
+            )
         ).value
 
 
