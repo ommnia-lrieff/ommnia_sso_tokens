@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ommnia-sso-tokens"
-version = "1.0.6"
+version = "1.0.7"
 description = "The tokens used by the Ommnia SSO system."
 authors = ["Luke A.C.A. Rieff - Ommnia Systems"]
 readme = "README.md"

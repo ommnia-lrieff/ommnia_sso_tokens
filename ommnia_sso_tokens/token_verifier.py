@@ -30,11 +30,9 @@ class _TokenVerifier:
         public_key: Optional[str] = None,
         verify: bool = True,
     ) -> TokenValue:
-        return Token.model_validate(
-            await asyncio.get_running_loop().run_in_executor(
-                None, self.verify, token, public_key, verify
-            )
-        ).value
+        return await asyncio.get_running_loop().run_in_executor(
+            None, self.verify, token, public_key, verify
+        )
 
 
 class TokenVerifier(ABC):
